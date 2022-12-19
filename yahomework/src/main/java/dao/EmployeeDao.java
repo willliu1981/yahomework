@@ -9,7 +9,7 @@ import java.sql.Statement;
 import org.junit.jupiter.api.Test;
 
 import jdbc.JDBCConnection;
-import model.Employee;
+import pojo.Employee;
 
 public class EmployeeDao implements Dao<Employee> {
 
@@ -93,12 +93,12 @@ public class EmployeeDao implements Dao<Employee> {
 	@Test
 	public void testQuery() {
 		EmployeeDao dao = new EmployeeDao();
-		Employee find = dao.findByUsernameAndPassword("David", "d1234");
+		Employee find = dao.findByUsername("David");
 		System.out.println("test1 = " + find);
 	}
 
 	@Override
-	public void create() {
+	public void create(Employee t) {
 
 	}
 

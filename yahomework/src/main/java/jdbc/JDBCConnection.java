@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 
 public class JDBCConnection {
 	static public Connection getConnection() {
-		String url = "jdbc:mysql://localhost:3306/yahomework?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC";
+		String url = "jdbc:mysql://localhost:3306/yahomework?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC&characterEncoding=UTF-8";
 		String username = "root";
 		String password = "1234";
 		Connection conn = null;

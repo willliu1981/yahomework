@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.EmployeeDao;
-import model.Employee;
+import pojo.Employee;
 
 /**
  * Servlet implementation class LoginServlet

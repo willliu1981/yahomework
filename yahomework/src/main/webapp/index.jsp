@@ -1,6 +1,6 @@
 <html>
 <head>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html" pageEncoding="UTF-8" isELIgnored="false"%>
 
 <style type="text/css">
 table {
@@ -14,9 +14,8 @@ table {
 
 </head>
 <body>
-	<h2>Hello World!</h2>
 
-	<form method="post" action="LoginServlet">
+	<form method="post" action="${pageContext.request.contextPath}/LoginServlet">
 		<table>
 			<thead>
 				<tr>
