@@ -6,6 +6,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.EmployeeDao;
+import model.Employee;
+
 /**
  * Servlet implementation class LoginServlet
  */
@@ -24,12 +27,20 @@ public class LoginServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		
-		String username=request.getParameter("username");
-		String password=request.getParameter("password");
-		
-		System.out.printf("username=%s, password=%s\n",username,password);
-		
+
+		String username = request.getParameter("username");
+		String password = request.getParameter("password");
+
+		EmployeeDao dao = new EmployeeDao();
+		Employee find = dao.findByUsernameAndPassword(username, password);
+		if (find != null) {
+			System.out.printf("Login successful\n");
+
+		} else {
+			System.out.printf("Login failure\n");
+
+		}
+
 		doGet(request, response);
 	}
 

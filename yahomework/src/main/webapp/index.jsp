@@ -25,14 +25,12 @@ table {
 			</thead>
 			<tbody>
 				<tr>
-					<td><input type="text" /></td>
-					<td><input type="text" class="tag" value="帳號" name="username"
-						readonly /></td>
+					<td><input type="text" name="username" /></td>
+					<td><input type="text" class="tag" value="帳號" readonly /></td>
 				</tr>
 				<tr>
-					<td><input type="password" /></td>
-					<td><input type="text" class="tag" value="密碼" name="password"
-						readonly /></td>
+					<td><input type="password" name="password" /></td>
+					<td><input type="text" class="tag" value="密碼" readonly /></td>
 				</tr>
 				<tr>
 					<td></td>
