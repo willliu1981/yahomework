@@ -1,6 +1,8 @@
 package controller;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -32,16 +34,22 @@ public class LoginServlet extends HttpServlet {
 		String password = request.getParameter("password");
 
 		EmployeeDao dao = new EmployeeDao();
-		Employee find = dao.findByUsernameAndPassword(username, password);
+		Employee find = dao.findByUsername(username);
+		RequestDispatcher disp = null;
 		if (find != null) {
-			System.out.printf("Login successful\n");
-
+			if (find.getPassword().equals(password)) {
+				disp = request
+						.getRequestDispatcher("account/login/successful.html");
+			} else {
+				disp = request
+						.getRequestDispatcher("account/login/failure.html");
+			}
 		} else {
-			System.out.printf("Login failure\n");
-
+			disp = request.getRequestDispatcher(
+					"account/login/accountisntexist.html");
 		}
+		disp.forward(request, response);
 
-		doGet(request, response);
 	}
 
 }

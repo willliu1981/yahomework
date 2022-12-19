@@ -36,10 +36,6 @@ table {
 					<td></td>
 					<td><input type="submit" value="submit" readonly /></td>
 				</tr>
-				<tr>
-					<td></td>
-					<td><input type="text" class="tag" value="按鈕" readonly /></td>
-				</tr>
 			</tbody>
 		</table>
 	</form>

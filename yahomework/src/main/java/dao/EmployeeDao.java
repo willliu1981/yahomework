@@ -39,6 +39,31 @@ public class EmployeeDao implements Dao<Employee> {
 		return employee;
 	}
 
+	public Employee findByUsername(String username) {
+		Connection conn = JDBCConnection.getConnection();
+		PreparedStatement statement = null;
+		String sql = "select * from employee where username=?";
+		ResultSet result = null;
+		Employee employee = null;
+		try {
+			statement = conn.prepareStatement(sql);
+			statement.setString(1, username);
+			result = statement.executeQuery();
+
+			if (result.next()) {
+				employee = new Employee();
+				employee.setU_id(result.getInt("u_id"));
+				employee.setUsername(result.getString("username"));
+				employee.setPassword(result.getString("password"));
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return employee;
+	}
+
 	@Override
 	public Employee find(Integer id) {
 		Connection conn = JDBCConnection.getConnection();
