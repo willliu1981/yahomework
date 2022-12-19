@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" isELIgnored="false"%>
+<%@page import="pojo.Product,java.util.*"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,16 +21,24 @@
 					<td><input type="text" name="name" /></td>
 					<td><input type="submit" value="搜索" /></td>
 				</tr>
-				<%
-				int i = 0;
 
-				while (i < 0) {
+				<%
+				List<Product> list = null;
+				Object o = request.getAttribute("products");
+				if (o != null) {
+					list = (ArrayList) o;
+					int i = 0;
+
+					while (i < list.size()) {
 				%>
 
 				<tr>
-					<td colspan="2"><input type="text" name="product" readonly /></td>
+					<td colspan="2"><input type="text" value="<%=list.get(i)%>"
+						readonly /></td>
 				</tr>
 				<%
+				i++;
+				}
 				}
 				%>
 

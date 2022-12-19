@@ -35,8 +35,8 @@ public class SearchProductServlet extends HttpServlet {
 		ProductDao dao=new ProductDao();
 		List<Product> products = dao.findByName(name);
 		
-		System.out.println("test search");
-		products.forEach(System.out::println);
+		request.setAttribute("products", products);
+		request.getRequestDispatcher("product/search.jsp").forward(request, response);
 		
 
 	}
